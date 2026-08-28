@@ -126,9 +126,9 @@ export default function Home() {
         <div className="mx-auto flex max-w-4xl items-center justify-between px-6 py-3">
           <a href="#" className="flex items-center gap-2">
             <Image src="/logo.jpg" alt="DesarroJoss" width={32} height={32} className="rounded-full" />
-            <span className="font-mono text-sm font-semibold text-white">DesarroJoss</span>
+            <span className="hidden font-mono text-sm font-semibold text-white sm:inline">DesarroJoss</span>
           </a>
-          <div className="flex gap-5 font-mono text-xs uppercase tracking-wide text-slate-400">
+          <div className="flex gap-3 font-mono text-[10px] uppercase tracking-wide text-slate-400 sm:gap-5 sm:text-xs">
             {navLinks.map((link) => (
               <a key={link.href} href={link.href} className="relative transition hover:text-cyan-neon">
                 {link.label}
