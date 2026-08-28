@@ -190,10 +190,17 @@ export default function Home() {
         </section>
 
         {/* Marquee */}
-        <div className="relative -mx-6 overflow-hidden border-y border-white/10 bg-white/[0.02] py-4">
-          <div className="flex w-max animate-marquee gap-10">
-            {[...marqueeItems, ...marqueeItems].map((item, i) => (
+        <div
+          className="relative -mx-6 overflow-hidden border-y border-white/10 bg-white/[0.02] py-4 [mask-image:linear-gradient(to_right,transparent,black_10%,black_90%,transparent)]"
+        >
+          <div className="flex w-max animate-marquee gap-10 motion-reduce:animate-none">
+            {marqueeItems.map((item, i) => (
               <span key={i} className="font-mono text-sm text-slate-500">
+                {item} <span className="text-cyan-neon">/</span>
+              </span>
+            ))}
+            {marqueeItems.map((item, i) => (
+              <span key={i} aria-hidden className="font-mono text-sm text-slate-500 motion-reduce:hidden">
                 {item} <span className="text-cyan-neon">/</span>
               </span>
             ))}
@@ -240,15 +247,37 @@ export default function Home() {
             {projects.map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} />
             ))}
+            <Reveal
+              delay={(projects.length % 2) * 0.1}
+              className="flex flex-col items-center justify-center gap-3 border border-dashed border-fuchsia-400/30 p-10 text-center"
+            >
+              <span className="w-fit border border-fuchsia-400/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-fuchsia-400">
+                Próximamente
+              </span>
+              <p className="font-mono text-sm text-slate-400">
+                Primer proyecto 100% personal de DesarroJoss — en definición.
+              </p>
+            </Reveal>
           </div>
         </section>
 
         {/* Contacto */}
         <section id="contacto" className="scroll-mt-20 border-t border-white/10 py-24">
           <Reveal>
-            <h2 className="mb-8 font-mono text-sm uppercase tracking-widest text-cyan-neon">Contacto</h2>
+            <h2 className="mb-4 font-mono text-sm uppercase tracking-widest text-cyan-neon">Contacto</h2>
           </Reveal>
-          <div className="flex flex-wrap gap-4">
+          <Reveal delay={0.05}>
+            <h3 className="mb-2 font-mono text-2xl font-bold text-white sm:text-3xl">
+              ¿Tienes un proyecto en mente? <span className="text-cyan-neon">Hablemos.</span>
+            </h3>
+            <a
+              href="mailto:desarrojoss@gmail.com"
+              className="mb-8 inline-block font-mono text-lg text-slate-300 underline decoration-cyan-neon/40 underline-offset-4 transition hover:text-cyan-neon"
+            >
+              desarrojoss@gmail.com
+            </a>
+          </Reveal>
+          <div className="mb-10 flex flex-wrap gap-4">
             {links.map(({ label, href, Icon }, i) => (
               <motion.a
                 key={label}

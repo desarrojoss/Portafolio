@@ -7,7 +7,7 @@ const sans = Inter({ subsets: ["latin"], variable: "--font-sans" });
 
 export const metadata: Metadata = {
   title: "DesarroJoss",
-  description: "Josttin Perez — construyo apps, webs y marketplaces, con y sin IA.",
+  description: "DesarroJoss — construyo apps, webs y marketplaces, con y sin IA.",
 };
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
