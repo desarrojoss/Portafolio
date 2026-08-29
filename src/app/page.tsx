@@ -9,6 +9,18 @@ import { IconGithub, IconLinkedin, IconInstagram, IconTiktok } from "@/component
 
 const projects = [
   {
+    title: "Quotia",
+    description:
+      "Cotizador y gestor de propuestas para freelancers y pequeños negocios: llenas un formulario de cotización, se genera un PDF profesional al vuelo, se cobra con Stripe Checkout (marcado automático como pagado vía webhook) y todo queda visible en un panel de seguimiento con resumen de cotizaciones, pendiente de cobro y cobrado.",
+    stack: ["Next.js", "TypeScript", "Firebase", "Firestore", "Stripe"],
+    status: "En producción",
+    type: "personal" as const,
+    accent: "#00fff5",
+    image: "/quotia-og.png",
+    demoUrl: "https://quotia-nu.vercel.app",
+    repoUrl: "https://github.com/desarrojoss/Quotia",
+  },
+  {
     title: "Portal corporativo de abastecimiento (procurement)",
     description:
       "Contribución full-stack a un portal corporativo con módulos de gestión de riesgo de terceros, licitaciones asistidas por IA generativa, aprobaciones y analítica de uso. Aporté funcionalidades de frontend en React (gestión de usuarios, panel de estadísticas, sistema de gestión de incidentes con carga de evidencias, módulo de capacitación multi-agente) y contribución en backend con integración de servicios de IA de Azure (clasificación de riesgo, búsqueda semántica).",
@@ -247,17 +259,6 @@ export default function Home() {
             {projects.map((project, i) => (
               <ProjectCard key={project.title} project={project} index={i} />
             ))}
-            <Reveal
-              delay={(projects.length % 2) * 0.1}
-              className="flex flex-col items-center justify-center gap-3 border border-dashed border-fuchsia-400/30 p-10 text-center"
-            >
-              <span className="w-fit border border-fuchsia-400/40 px-2 py-0.5 font-mono text-[10px] uppercase tracking-wide text-fuchsia-400">
-                Próximamente
-              </span>
-              <p className="font-mono text-sm text-slate-400">
-                Primer proyecto 100% personal de DesarroJoss — en definición.
-              </p>
-            </Reveal>
           </div>
         </section>
 

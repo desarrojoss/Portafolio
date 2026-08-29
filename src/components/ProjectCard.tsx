@@ -1,6 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
+import NextImage from "next/image";
 import type { MouseEvent } from "react";
 import CardCover from "./CardCover";
 
@@ -11,6 +12,9 @@ type Project = {
   status: string | null;
   type: "profesional" | "personal";
   accent?: string;
+  image?: string;
+  demoUrl?: string;
+  repoUrl?: string;
 };
 
 function handleSpotlight(e: MouseEvent<HTMLDivElement>) {
@@ -39,7 +43,18 @@ export default function ProjectCard({ project, index }: { project: Project; inde
         }}
       />
 
-      <CardCover index={index} />
+      {project.image ? (
+        <div className="relative h-36 w-full overflow-hidden border-b border-white/10">
+          <NextImage
+            src={project.image}
+            alt={project.title}
+            fill
+            className="object-cover object-top transition-transform duration-500 group-hover:scale-105"
+          />
+        </div>
+      ) : (
+        <CardCover index={index} />
+      )}
 
       <div className="relative flex flex-1 flex-col gap-3 p-6">
         <h3 className="font-mono text-base font-semibold text-white">{project.title}</h3>
@@ -70,6 +85,30 @@ export default function ProjectCard({ project, index }: { project: Project; inde
             </span>
           ))}
         </div>
+        {(project.demoUrl || project.repoUrl) && (
+          <div className="flex gap-4 pt-1 font-mono text-xs">
+            {project.demoUrl && (
+              <a
+                href={project.demoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-[var(--accent)] underline underline-offset-4 hover:opacity-80"
+              >
+                Ver en producción ↗
+              </a>
+            )}
+            {project.repoUrl && (
+              <a
+                href={project.repoUrl}
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-slate-400 underline underline-offset-4 hover:text-slate-200"
+              >
+                Código ↗
+              </a>
+            )}
+          </div>
+        )}
       </div>
     </motion.article>
   );
