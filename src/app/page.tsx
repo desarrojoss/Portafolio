@@ -21,6 +21,17 @@ const projects = [
     repoUrl: "https://github.com/desarrojoss/Quotia",
   },
   {
+    title: "Ordenia",
+    description:
+      "Catálogo en línea que arma el pedido por WhatsApp para negocios pequeños: el cliente filtra por talla, color y precio, ve el stock en vivo y envía; el pedido llega armado al WhatsApp del negocio y queda guardado con número consecutivo en un panel donde se confirma, se envía y se entrega. El panel gestiona productos, variantes, stock (que se descuenta al confirmar y vuelve al cancelar), categorías, fotos y la configuración de la tienda. La demo es una tienda de ropa ficticia.",
+    stack: ["Next.js", "TypeScript", "Tailwind CSS", "Firebase", "Firestore", "Cloudinary", "Vercel"],
+    status: "En producción",
+    type: "personal" as const,
+    accent: "#ffe600",
+    image: "/ordenia-og.png",
+    demoUrl: "https://ordenia-six.vercel.app",
+  },
+  {
     title: "Portal corporativo de abastecimiento (procurement)",
     description:
       "Contribución full-stack a un portal corporativo con módulos de gestión de riesgo de terceros, licitaciones asistidas por IA generativa, aprobaciones y analítica de uso. Aporté funcionalidades de frontend en React (gestión de usuarios, panel de estadísticas, sistema de gestión de incidentes con carga de evidencias, módulo de capacitación multi-agente) y contribución en backend con integración de servicios de IA de Azure (clasificación de riesgo, búsqueda semántica).",
